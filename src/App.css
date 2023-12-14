@@ -1,42 +1,80 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  overflow-x:hidden
+
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 64px;
+  color: #fff;
+}
+/* #dropdown{
+  position:relative
+
+}
+.pure-menu-link{
+  position:relative
+} */
+#nav{
+  padding-bottom: 30px;
+  padding-left: 100px;
+}
+nav img {
+  max-height: 50px;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 30px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+nav h1 {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav div {
+  float: right;
+  padding-right: 50px;
+  padding-top: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+input {
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 300px;
+  height: 35px;
+  border-radius: 4px;
+  border-color: rgb(136, 179, 93);
+  background-color: #1f3127;
+  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+}
+button{
+  background-color: #091a87;
+  color: rgb(255, 255, 255);
+  padding: .5rem;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 1.5rem;
+  text-decoration: none;
+  overflow: hidden;
+}
+.pure-menu{
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#homeHead{
+  margin-top: 1rem;
 }

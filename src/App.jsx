@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import './App.css';
+import {Route, Routes, Link} from 'react-router-dom'
+import Dropdown from './components/Dropdown';
+import ShowPage from './cryptoData/ShowPage';
+import CoinsList from './coins/CoinsList';
+import Homepage from './components/Homepage';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [coins, setCoins] = useState([])
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=300&page=1&sparkline=false")
+    .then(res => {
+      setCoins(res.data)
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+  }, [])
+
+  const handleChange = e => {
+    setSearch(e.target.value);
+  };
+  const filteredCoins = coins.filter(coin =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  );
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <nav id='nav'>
+        <div id='dropdown'>
+        <Dropdown />
+        </div>
+        <Link to='/'>
+          <button>Home</button>
+        </Link>
+          <h1>Crypto Viewer</h1>      
+      </nav>
+      <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,pumpkin-inu,pumpkin-punks,shitcoin,afro,agenor,dinero,dingocoin,ethereum,eos,ripple,litecoin,tron,polkadot,dai" currency="usd" background-color="black" locale="en"></coingecko-coin-price-marquee-widget>
+      <main>
+        <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path='/coin-list' element={<CoinsList
+            filteredCoins={filteredCoins} 
+            handleChange={handleChange}/>} />
+            <Route path="/crypto-data/:symbol" element={<ShowPage coins={coins}/>} />
+        </Routes>          
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
