@@ -41,7 +41,7 @@ function App() {
         <Link to='/'>
           <button>Home</button>
         </Link>
-          <h1>Crypto Viewer</h1>      
+          <h1>CryptoVerse</h1>      
       </nav>
       <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,pumpkin-inu,pumpkin-punks,shitcoin,afro,agenor,dinero,dingocoin,ethereum,eos,ripple,litecoin,tron,polkadot,dai" currency="usd" background-color="black" locale="en"></coingecko-coin-price-marquee-widget>
       <main>

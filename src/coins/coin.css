@@ -1,0 +1,77 @@
+.showDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.coin-container {
+    display: flex;
+    justify-content: center;
+    
+}
+.coin {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+
+
+}
+.coin-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 400px;
+    background-color: #3bb78f;
+    background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+    border-radius: 10px;
+
+}
+.coin-symbol {
+  text-transform: uppercase;
+  padding-left: 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  margin-right: 1rem;
+
+}  
+  .coin img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+#dropdown{
+    padding-left: 30px;
+}
+.stockHead{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+h4{
+    background-color: transparent;
+}
+.crypto-data {
+    margin-bottom: .5rem;
+}
+#backBtn{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+input {
+    margin-top: 1rem;
+}
+
+
+.coinChart {
+    border-radius: 8px;
+}
+
+.bootyP{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+}
